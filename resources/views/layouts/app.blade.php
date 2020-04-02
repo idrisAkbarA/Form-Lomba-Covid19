@@ -22,6 +22,16 @@
 <body>
     <div id="app">
         <v-app dark>
+            <v-app-bar  dense>
+                <img
+                class="mr-2"
+                src="{{ asset('images/stiker.png') }}"
+                alt="John"
+                height="30"
+                >
+                <v-toolbar-title>Lomba - Sosialisai Corona</v-toolbar-title>
+                <v-spacer></v-spacer>
+            </v-app-bar>
             <v-content>
                 @yield('content')
             </v-content>
