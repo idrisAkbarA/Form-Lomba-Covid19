@@ -3,7 +3,7 @@
     <v-hover>
       <template v-slot="{ hover }">
         <v-card
-          @click=""
+          @click="sheet=true"
           :elevation="hover ? 20 : 6"
         >
           <v-card
@@ -28,10 +28,30 @@
         </v-card>
       </template>
     </v-hover>
+    <v-bottom-sheet overlay-color="red darken-4" v-model="sheet">
+      <v-sheet class="text-center" height="200px">
+        <v-container>
+          <v-row>
+            <v-col cols="12">
+              <h4>Lomba Video Kreatif</h4>
+            </v-col>
+            <v-col>
+              
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-sheet>
+    </v-bottom-sheet>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      sheet:false
+    }
+  },
+};
 </script>
 <style scoped>
 .kelA {

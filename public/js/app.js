@@ -2057,7 +2057,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      sheet: false
+    };
+  }
+});
 
 /***/ }),
 
@@ -38167,7 +38187,11 @@ var render = function() {
                           staticClass: "subheading",
                           staticStyle: { "text-shadow": "2px 2px 10px #000" }
                         },
-                        [_vm._v("Cegah Covid-19 dengan mengikuti lomba!")]
+                        [
+                          _vm._v(
+                            "Cegah Covid-19 dengan mengikuti lomba dan menangkan wisuda 3.5 tahun!"
+                          )
+                        ]
                       )
                     ]
                   )
@@ -38337,7 +38361,11 @@ var render = function() {
                   "v-card",
                   {
                     attrs: { elevation: hover ? 20 : 6 },
-                    on: { click: function($event) {} }
+                    on: {
+                      click: function($event) {
+                        _vm.sheet = true
+                      }
+                    }
                   },
                   [
                     _c(
@@ -38385,7 +38413,48 @@ var render = function() {
             }
           }
         ])
-      })
+      }),
+      _vm._v(" "),
+      _c(
+        "v-bottom-sheet",
+        {
+          attrs: { "overlay-color": "red darken-4" },
+          model: {
+            value: _vm.sheet,
+            callback: function($$v) {
+              _vm.sheet = $$v
+            },
+            expression: "sheet"
+          }
+        },
+        [
+          _c(
+            "v-sheet",
+            { staticClass: "text-center", attrs: { height: "200px" } },
+            [
+              _c(
+                "v-container",
+                [
+                  _c(
+                    "v-row",
+                    [
+                      _c("v-col", { attrs: { cols: "12" } }, [
+                        _c("h4", [_vm._v("Lomba Video Kreatif")])
+                      ]),
+                      _vm._v(" "),
+                      _c("v-col")
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
