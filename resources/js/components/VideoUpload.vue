@@ -29,6 +29,7 @@
                 <v-col cols="6">
                   <v-text-field
                     v-model="nim"
+                    @keypress="numberOnly($event)"
                     @keyup="isAllFilled"
                     prepend-icon="credit_card"
                     filled
@@ -47,7 +48,7 @@
                   ></v-file-input>
                 </v-col>
                 <v-col>
-                  <v-btn 
+                  <v-btn
                     class="ml-8"
                     @click="send"
                     :disabled="sendButton"
@@ -67,36 +68,35 @@
       v-model="dialog"
       persistent
       width="400"
-    
     >
       <v-card
         color="red darken-4"
         dark
       >
-      <v-sheet color="red darken-4">
-        <v-container
-          fluid
-          fill-height
-        >
-          <v-row>
-            <v-col cols="12">
-              <v-card-title class="mt-0 mb-0">
-                {{loadText}}
-              </v-card-title>
-            </v-col>
-            <v-col cols="12">
-              <v-progress-linear
+        <v-sheet color="red darken-4">
+          <v-container
+            fluid
+            fill-height
+          >
+            <v-row>
+              <v-col cols="12">
+                <v-card-title class="mt-0 mb-0">
+                  {{loadText}}
+                </v-card-title>
+              </v-col>
+              <v-col cols="12">
+                <v-progress-linear
                   height="10"
                   :indeterminate="afterLoad"
                   buffer-value="100"
                   :value="loading"
                   color="white"
                 ></v-progress-linear>
-            </v-col>
-          </v-row>
-        </v-container>
+              </v-col>
+            </v-row>
+          </v-container>
 
-      </v-sheet>
+        </v-sheet>
       </v-card>
     </v-dialog>
   </div>
@@ -106,8 +106,8 @@
 export default {
   data() {
     return {
-      loadText:"Initializing",
-      afterLoad:false,
+      loadText: "Initializing",
+      afterLoad: false,
       loading: 0,
       dialog: false,
       sendButton: true,
@@ -166,6 +166,19 @@ export default {
       });
   },
   methods: {
+    numberOnly(evt) {
+      evt = evt ? evt : window.event;
+      var charCode = evt.which ? evt.which : evt.keyCode;
+      if (
+        charCode > 31 &&
+        (charCode < 48 || charCode > 57) &&
+        charCode !== 46
+      ) {
+        evt.preventDefault();
+      } else {
+        return true;
+      }
+    },
     isAllFilled() {
       console.log(this.file);
       if (!(this.nama == "" || this.nim == "" || this.file == null)) {
@@ -189,7 +202,7 @@ export default {
         onUploadProgress: function(progressEvent) {
           var percentage = progressEvent.loaded * (100 / progressEvent.total);
           ini.loading = percentage;
-          ini.loadText = "Uploading "+Math.round(ini.loading)+"%";
+          ini.loadText = "Uploading " + Math.round(ini.loading) + "%";
           console.log(ini.loading);
         },
 
@@ -273,7 +286,7 @@ export default {
           var itu = ini;
           console.log(response);
           itu.dialog = false;
-          window.location.href ="/takeoff";
+          window.location.href = "/takeoff";
         })
         .catch(function(error) {
           console.log(error);

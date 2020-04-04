@@ -24,7 +24,7 @@
 <body>
     <div id="app">
         <v-app dark>
-            <v-app-bar  dense>
+            <v-app-bar dense app>
                 <img
                 class="mr-2"
                 src="{{ asset('images/stiker.png') }}"

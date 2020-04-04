@@ -26,6 +26,10 @@ Route::get('/submit', function () {
 Route::get('/takeoff', function () {
     return view('takeoff');
 });
+Route::get('/peserta', function () {
+    return view('peserta');
+});
+Route::get('/get/peserta', 'videoController@peserta');
 
 Auth::routes();
 

@@ -33,6 +33,7 @@ Vue.component('takeoff', require('./components/Takeoff.vue').default);
 Vue.component('poster', require('./components/Poster.vue').default);
 Vue.component('videox', require('./components/Videox.vue').default);
 Vue.component('video-upload', require('./components/VideoUpload.vue').default);
+Vue.component('peserta', require('./components/peserta.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

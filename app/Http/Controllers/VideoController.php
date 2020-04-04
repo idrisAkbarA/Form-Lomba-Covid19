@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\video;
+use App\poster;
 use Illuminate\Http\Request;
 
 class VideoController extends Controller
@@ -22,9 +23,11 @@ class VideoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function peserta()
+    {   
+        $poster = poster::orderBy('id', 'desc')->get();
+        $video = video::orderBy('id', 'desc')->get();
+        return response([$poster,$video]);
     }
 
     /**
