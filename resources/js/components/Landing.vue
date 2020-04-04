@@ -30,18 +30,22 @@
         </v-row>
       </v-col>
       <v-col
-        cols="6"
+        cols="12"
         xs="12"
         sm="12"
         md="6"
+        lg="6"
+        xl="6"
       >
         <poster></poster>
       </v-col>
       <v-col
-        cols="6"
+        cols="12"
         xs="12"
         sm="12"
         md="6"
+        lg="6"
+        xl="6"
       >
         <videox></videox>
       </v-col>

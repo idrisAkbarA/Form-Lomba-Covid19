@@ -1,0 +1,3 @@
+CLIENT ID 805244407011-6v155el2sl8v3o8g0gtve4dca4ofoe34.apps.googleusercontent.com
+CLIENT SECRETE VqlEftJPdIGWTW1-_0RkN1y-
+API KEY AIzaSyCQvLAz3pTxtph5Qh7VA4hE3KwjEFDQxxo

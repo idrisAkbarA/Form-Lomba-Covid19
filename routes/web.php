@@ -17,6 +17,12 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/testapi', function () {
+    return view('testapi');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/store/video', 'videoController@store');
+Route::get('/store/poster', 'posterController@store');
