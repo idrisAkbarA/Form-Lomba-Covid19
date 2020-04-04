@@ -4,12 +4,17 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+ 
+
 require('./bootstrap');
 import * as easings from 'vuetify/es5/services/goto/easing-patterns';
 import Vuetify from 'vuetify';
 import Axios from 'axios';
 window.Vue = require('vue');
 Vue.use(Vuetify);
+import LoadScript from 'vue-plugin-load-script';
+
+Vue.use(LoadScript);
 
 /**
  * The following block of code may be used to automatically register your
@@ -24,8 +29,10 @@ Vue.use(Vuetify);
 
 
 Vue.component('landing', require('./components/Landing.vue').default);
+Vue.component('takeoff', require('./components/Takeoff.vue').default);
 Vue.component('poster', require('./components/Poster.vue').default);
 Vue.component('videox', require('./components/Videox.vue').default);
+Vue.component('video-upload', require('./components/VideoUpload.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

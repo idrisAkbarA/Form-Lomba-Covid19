@@ -20,6 +20,12 @@ Route::get('/', function () {
 Route::get('/testapi', function () {
     return view('testapi');
 });
+Route::get('/submit', function () {
+    return view('submit');
+});
+Route::get('/takeoff', function () {
+    return view('takeoff');
+});
 
 Auth::routes();
 

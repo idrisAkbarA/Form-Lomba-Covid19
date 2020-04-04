@@ -38,7 +38,8 @@ class VideoController extends Controller
         try {
             $video = new video;
             $video->nama = $request['nama'];
-            $video->nim = $request['nama'];
+            $video->nim = $request['nim'];
+            $video->video = $request['video'];
             $video->save();
             return 1;//success
         } catch (\Throwable $th) {

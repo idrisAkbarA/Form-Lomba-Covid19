@@ -89,37 +89,36 @@
                   </v-row>
                   <v-row class="hidden-md-and-up">
                     <v-col>
-                       <v-card
-                color="red darken-3"
-                class="mx-auto overflow-y-auto"
-                elevation="21"
-              >
-                <v-img
-                  class="white--text align-end"
-                  height="200px"
-                  src="images/video.png"
-                ></v-img>
-                <v-card-title >
-                  
-                  <p>
-                   Sudah Siap?   
-                  </p>
-                  <v-spacer></v-spacer>
-                  <p>
-                  Submit karya kamu disini!
-                  </p>
+                      <v-card
+                        @click="signIn"
+                        color="red darken-3"
+                        class="mx-auto overflow-y-auto"
+                        elevation="21"
+                      >
+                        <v-img
+                          class="white--text align-end"
+                          height="200px"
+                          src="images/video.png"
+                        ></v-img>
+                        <v-card-title>
 
-             
-                  
-                </v-card-title>
-                <v-card-subtitle>
-                  <v-card-title>
-                    
-                  </v-card-title>
-                  click untuk submit karya
-                </v-card-subtitle>
+                          <p>
+                            Sudah Siap?
+                          </p>
+                          <v-spacer></v-spacer>
+                          <p>
+                            Submit karya kamu disini!
+                          </p>
 
-              </v-card>
+                        </v-card-title>
+                        <v-card-subtitle>
+                          <v-card-title>
+
+                          </v-card-title>
+                          click untuk submit karya
+                        </v-card-subtitle>
+
+                      </v-card>
                     </v-col>
                   </v-row>
                 </v-container>
@@ -134,6 +133,7 @@
               lg="4"
             >
               <v-card
+                @click="signIn"
                 color="red darken-3"
                 class="mx-auto overflow-y-auto"
                 elevation="21"
@@ -176,6 +176,36 @@ export default {
     };
   },
   methods: {
+    signIn() {
+      var clientId = "271334780177-barurljabltun9vbepemiktvl3toc24m.apps.googleusercontent.com";
+
+      // redirect_uri of the project
+      // YiZFiXWyzCmROXh7ea7__v6T
+      var redirect_uri = "http://127.0.0.1:8000/submit";
+
+      // scope of the project
+
+      var scope = "https://www.googleapis.com/auth/drive";
+
+      // the url to which the user is redirected to
+
+      var url = "";
+
+      // the actual url to which the user is redirected to
+
+      url =
+        "https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=" +
+        redirect_uri +
+        "&prompt=consent&response_type=code&client_id=" +
+        clientId +
+        "&scope=" +
+        scope +
+        "&access_type=offline";
+
+      // this line makes the user redirected to the url
+
+      window.location = url;
+    },
     send() {
       var ini = this;
       axios

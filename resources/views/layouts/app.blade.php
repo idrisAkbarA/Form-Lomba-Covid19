@@ -11,12 +11,14 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src='https://apis.google.com/js/api.js'></script> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="icon" href="{{ asset('images/stiker.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -29,7 +31,7 @@
                 alt="John"
                 height="30"
                 >
-                <v-toolbar-title>Lomba - Sosialisai Corona</v-toolbar-title>
+                <v-toolbar-title> <a href="http://127.0.0.1:8000/"> Lomba - Sosialisai Corona</a> </v-toolbar-title>
                 <v-spacer></v-spacer>
             </v-app-bar>
             <v-content>
