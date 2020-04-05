@@ -25,7 +25,7 @@
                 </thead>
                 <tbody>
                   <tr 
-                    v-for="(index, item) in poster"
+                    v-for="(item,index) in poster"
                     :key="index"
                   >
                     <td>{{ index+1 }}</td>

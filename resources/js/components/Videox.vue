@@ -65,22 +65,88 @@
                 </v-card-title>
                 <v-container>
                   <v-row
-                    no-gutters
-                    v-for="i in 10"
-                    :key="i"
+                    dense
                   >
                     <v-col
                       cols="12"
                       class="d-flex"
                     >
-
                       <span class="mt-1">
                         Batas waktu penyerahan karya
-                      </span>
-                      <v-spacer>
-                      </v-spacer>
-                      <span class="mt-1">
                         1 Januari 2021, pukul 23.59 WIB
+                      </span>
+                    </v-col>
+                    <v-col>
+                      <v-divider></v-divider>
+                    </v-col>
+                    <v-col cols="12"
+                      class="d-flex">
+                 
+                      <span class="mt-1">
+                        Tema: Meningkatkan pemahaman tentang bahaya Covid-19
+                      </span>
+                    </v-col>
+                    <v-col>
+                      <v-divider></v-divider>
+                    </v-col>
+
+                    <v-col
+                      cols="12"
+                      class="d-flex"
+                    >
+                      <span class="mt-1">
+                        Menyertakan hashtag #dirumahaja, logo lomba, logo himatif didalam video. <a href="http://lomba.ikarin.site/images/logo.png" target="_blank" rel="noopener noreferrer">Download logo</a>
+                      </span>
+                    </v-col>
+                    <v-col>
+                      <v-divider></v-divider>
+                    </v-col>
+                    <v-col
+                      cols="12"
+                      class="d-flex"
+                    >
+                      <span class="mt-1">
+                        Durasi Video minimal 1 menit, maksimal 5 menit
+                      </span>
+                      
+                    </v-col>
+                    <v-col>
+                      <v-divider></v-divider>
+                    </v-col>
+                    
+                    <v-col
+                      cols="12"
+                      class="d-flex"
+                    >
+                      <span class="mt-1">
+                        Upload video ke situs ini <span class="hidden-md-and-up">(Link dibawah)</span> dan Instagram TV serta tandai akun Instagram Himatif USR
+                      </span>
+                      
+                    </v-col>
+                    <v-col>
+                      <v-divider></v-divider>
+                    </v-col>
+
+                    <v-col
+                      cols="12"
+                      class="d-flex"
+                    >
+                      <span class="mt-1">
+                        Penilaian menekankan pada pesan/makna video dan kreatifitas (editing, plot cerita, dsb )
+                      </span>
+                      
+                    </v-col>
+                    <v-col>
+                      <v-divider></v-divider>
+                    </v-col>
+
+                    
+                    <v-col
+                      cols="12"
+                      class="d-flex"
+                    >
+                      <span class="mt-1">
+                        Karya menjadi hak milik Himatif USR
                       </span>
                     </v-col>
                     <v-col>
@@ -177,7 +243,8 @@ export default {
   },
   methods: {
     signIn() {
-      var clientId = "271334780177-barurljabltun9vbepemiktvl3toc24m.apps.googleusercontent.com";
+      var clientId =
+        "271334780177-barurljabltun9vbepemiktvl3toc24m.apps.googleusercontent.com";
 
       // redirect_uri of the project
       // YiZFiXWyzCmROXh7ea7__v6T

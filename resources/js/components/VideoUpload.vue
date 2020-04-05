@@ -155,8 +155,8 @@ export default {
         grant_type: "authorization_code"
       })
       .then(function(response) {
-        console.log(response);
-        console.log(response.data.access_token);
+        // console.log(response);
+        // console.log(response.data.access_token);
         ini.accessToken = response.data.access_token;
         ini.refreshToken = response.data.refresh_token;
         window.history.pushState({}, document.title, "/submit/");
@@ -192,7 +192,7 @@ export default {
       this.dialog = true;
       var ini = this;
       var auth = "Bearer" + " " + ini.accessToken;
-      console.log(auth);
+      // console.log(auth);
       axios({
         method: "post",
         url: "https://www.googleapis.com/upload/drive/v3/files",
@@ -240,7 +240,7 @@ export default {
         .then(function(response) {
           var itu = ini;
           itu.getFile();
-          console.log(response);
+          // console.log(response);
         })
         .catch(function(error) {
           console.log(error);

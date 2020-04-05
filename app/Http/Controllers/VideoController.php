@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Telegram;
 use App\video;
 use App\poster;
 use Illuminate\Http\Request;
@@ -44,6 +44,30 @@ class VideoController extends Controller
             $video->nim = $request['nim'];
             $video->video = $request['video'];
             $video->save();
+
+            $response = Telegram::getUpdates();
+            $arrId =[];
+            for ($i=0; $i < sizeof($response); $i++) { 
+                $id = $response[$i]['message']['from']['id'];
+                if(!in_array($id,$arrId)){
+                    array_push($arrId,$id);
+                }
+            }
+            for ($i=0; $i < sizeof($arrId) ; $i++) { 
+                Telegram::sendMessage([
+                    'chat_id' => "$arrId[$i]",
+                    'parse_mode' => 'HTML',
+                    'text' => "Lapor! ada peserta lomba <b> Video Kreatif</b> yang mendaftar,\n\nNim: "
+                    .$request['nim'].
+                    "\nNama: "
+                    .$request['nama']."\nLink Karya:\n\n"
+                    .$request['video']
+                    ."\n\nHinbo Love you"
+                ]);
+            }
+        
+            return $arrId;
+            
             return 1;//success
         } catch (\Throwable $th) {
             throw $th;

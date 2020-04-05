@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Telegram;
 use App\poster;
 use Illuminate\Http\Request;
 
@@ -39,7 +39,31 @@ class PosterController extends Controller
             $poster = new poster;
             $poster->nama = $request['nama'];
             $poster->nim = $request['nama'];
+            $poster->poster = $request['poster'];
             $poster->save();
+
+            $response = Telegram::getUpdates();
+            $arrId =[];
+            for ($i=0; $i < sizeof($response); $i++) { 
+                $id = $response[$i]['message']['from']['id'];
+                if(!in_array($id,$arrId)){
+                    array_push($arrId,$id);
+                }
+            }
+            for ($i=0; $i < sizeof($arrId) ; $i++) { 
+                Telegram::sendMessage([
+                    'chat_id' => "$arrId[$i]",
+                    'parse_mode' => 'HTML',
+                    'text' => "Lapor! ada yang mendaftar lomba <b>Poster</b>,\n\nNim: "
+                    .$request['nim'].
+                    "\nNama: "
+                    .$request['nama']."\nLink Karya:\n\n"
+                    .$request['poster']
+                    ."\n\nHinbo Love you"
+                ]);
+            }
+        
+            return $arrId;
             return 1; //success
         } catch (\Throwable $th) {
             throw $th;
