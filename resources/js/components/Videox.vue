@@ -64,24 +64,24 @@
                   Rincian
                 </v-card-title>
                 <v-container>
-                  <v-row
-                    dense
-                  >
+                  <v-row dense>
                     <v-col
                       cols="12"
                       class="d-flex"
                     >
                       <span class="mt-1">
                         Batas waktu penyerahan karya
-                        1 Januari 2021, pukul 23.59 WIB
+                        27 April 2020, pukul 23.59 WIB
                       </span>
                     </v-col>
                     <v-col>
                       <v-divider></v-divider>
                     </v-col>
-                    <v-col cols="12"
-                      class="d-flex">
-                 
+                    <v-col
+                      cols="12"
+                      class="d-flex"
+                    >
+
                       <span class="mt-1">
                         Tema: Meningkatkan pemahaman tentang bahaya Covid-19
                       </span>
@@ -95,7 +95,11 @@
                       class="d-flex"
                     >
                       <span class="mt-1">
-                        Menyertakan hashtag #dirumahaja, logo lomba, logo himatif didalam video. <a href="http://lomba.ikarin.site/images/logo.png" target="_blank" rel="noopener noreferrer">Download logo</a>
+                        Menyertakan hashtag #dirumahaja, logo lomba, logo himatif didalam video. <a
+                          href="https://lomba.ikarin.site/images/logo.png"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >Download logo</a>
                       </span>
                     </v-col>
                     <v-col>
@@ -108,12 +112,12 @@
                       <span class="mt-1">
                         Durasi Video minimal 1 menit, maksimal 5 menit
                       </span>
-                      
+
                     </v-col>
                     <v-col>
                       <v-divider></v-divider>
                     </v-col>
-                    
+
                     <v-col
                       cols="12"
                       class="d-flex"
@@ -121,7 +125,7 @@
                       <span class="mt-1">
                         Upload video ke situs ini <span class="hidden-md-and-up">(Link dibawah)</span> dan Instagram TV serta tandai akun Instagram Himatif USR
                       </span>
-                      
+
                     </v-col>
                     <v-col>
                       <v-divider></v-divider>
@@ -134,13 +138,12 @@
                       <span class="mt-1">
                         Penilaian menekankan pada pesan/makna video dan kreatifitas (editing, plot cerita, dsb )
                       </span>
-                      
+
                     </v-col>
                     <v-col>
                       <v-divider></v-divider>
                     </v-col>
 
-                    
                     <v-col
                       cols="12"
                       class="d-flex"
@@ -156,7 +159,7 @@
                   <v-row class="hidden-md-and-up">
                     <v-col>
                       <v-card
-                        @click="signIn"
+                        @click="dialog = true"
                         color="red darken-3"
                         class="mx-auto overflow-y-auto"
                         elevation="21"
@@ -199,7 +202,7 @@
               lg="4"
             >
               <v-card
-                @click="signIn"
+                @click="dialog=true"
                 color="red darken-3"
                 class="mx-auto overflow-y-auto"
                 elevation="21"
@@ -227,6 +230,42 @@
         </v-container>
       </v-sheet>
     </v-bottom-sheet>
+    <v-dialog
+      v-model="dialog"
+      width="300"
+    >
+      <v-card>
+        <v-card-title>
+          Sebelum itu...
+        </v-card-title>
+        <v-card-subtitle>
+          jika menemui error lakukan seperti dibawah...
+        </v-card-subtitle>
+        <v-img
+          class="white--text align-end"
+          height="300px"
+          src="images/petunjuk.gif"
+          contain
+        >
+          <template v-slot:placeholder>
+            <v-skeleton-loader
+            ref="skeleton"
+            :loading="loading"
+            type="image"
+            class="ma-auto "
+          >
+         </v-skeleton-loader>
+          </template>
+        </v-img>
+        <v-card-actions class="mb-2">
+          <v-btn
+            block
+            @click="signIn"
+            color="red darken-5"
+          >Mengerti</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 <script>
@@ -234,6 +273,8 @@ import Axios from "axios";
 export default {
   data() {
     return {
+      loading:true,
+      dialog: false,
       sendButton: true,
       sheet: false,
       nama: "",
@@ -248,7 +289,7 @@ export default {
 
       // redirect_uri of the project
       // YiZFiXWyzCmROXh7ea7__v6T
-      var redirect_uri = "http://127.0.0.1:8000/submit";
+      var redirect_uri = "https://lomba.ikarin.site/submit";
 
       // scope of the project
 

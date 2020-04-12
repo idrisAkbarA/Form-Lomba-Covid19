@@ -31,7 +31,7 @@
                 alt="John"
                 height="30"
                 >
-                <v-toolbar-title> <a href="http://127.0.0.1:8000/"> Lomba - Sosialisai Corona</a> </v-toolbar-title>
+                <v-toolbar-title> <a href="https://lomba.ikarin.site"> Lomba - Sosialisasi Corona</a> </v-toolbar-title>
                 <v-spacer></v-spacer>
             </v-app-bar>
             <v-content>

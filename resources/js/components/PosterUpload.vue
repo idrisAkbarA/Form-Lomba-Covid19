@@ -17,7 +17,7 @@
             </v-card-title>
             <v-container>
               <v-row>
-                <v-col cols="6">
+                <v-col cols="6" lg="6" md="12" sm="12">
                   <v-text-field
                     v-model="nama"
                     @keyup="isAllFilled"
@@ -26,7 +26,7 @@
                     label="Nama"
                   ></v-text-field>
                 </v-col>
-                <v-col cols="6">
+                <v-col cols="6" lg="6" md="12" sm="12">
                   <v-text-field
                     v-model="nim"
                     @keypress="numberOnly($event)"
@@ -139,7 +139,7 @@ export default {
     const code = params.get("code");
     // redirect_uri of the project
     // YiZFiXWyzCmROXh7ea7__v6T
-    var redirect_uri = "http://127.0.0.1:8000/submitposter";
+    var redirect_uri = "https://lomba.ikarin.site/submitposter";
     //const code = this.$route.query.code;
     var client_secret = "YiZFiXWyzCmROXh7ea7__v6T";
     // scope of the project

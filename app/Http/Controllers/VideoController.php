@@ -60,8 +60,8 @@ class VideoController extends Controller
                     'text' => "Lapor! ada peserta lomba <b> Video Kreatif</b> yang mendaftar,\n\nNim: "
                     .$request['nim'].
                     "\nNama: "
-                    .$request['nama']."\nLink Karya:\n\n"
-                    .$request['video']
+                    .$request['nama']."\nLihat karya "
+                    ."<a href='".$request['video']."'>disini</a>"
                     ."\n\nHinbo Love you"
                 ]);
             }

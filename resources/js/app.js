@@ -52,4 +52,52 @@ const vuetify = new Vuetify(
 const app = new Vue({
     el: '#app',
     vuetify,
+    data() {
+      return {
+        file:null,
+      }
+    },
+    methods: {
+      send(){
+        console.log(this.file);
+        var ini = this;
+        var formData = new FormData();
+        formData.append("file", this.file);
+        console.log(formData.getAll("file"));
+        // axios({
+        //   url:"/upload",
+        //   method:"post",
+        //   formData
+        // }
+        Axios.post('/upload',formData)
+        .then(function(response){
+          console.log(response);
+        });
+      },
+      sendx(){
+        console.log(this.file);
+        var ini = this;
+        var formData = new FormData();
+        formData.append("file", this.file);
+        console.log(formData.getAll("file"));
+        // axios({
+        //   url:"/upload",
+        //   method:"post",
+        //   formData
+        // }
+        Axios.post('/uploadX',formData)
+        .then(function(response){
+          console.log(response.data);
+        });
+      },
+      setwebhook(){
+        
+        var ini = this;
+        Axios.get('/setwebhook')
+        .then(function(response){
+          console.log(response);
+        });
+      },
+
+    },
 });

@@ -25,7 +25,7 @@
             <h4
               class="subheading"
               style="text-shadow: 2px 2px 10px #000;"
-            >Cegah Covid-19 dengan mengikuti lomba dan menangkan wisuda 3.5 tahun!</h4>
+            >Cegah Covid-19 dengan mengikuti lomba dan menangkan hadiah menarik!</h4>
           </v-col>
         </v-row>
       </v-col>

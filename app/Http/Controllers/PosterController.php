@@ -57,8 +57,8 @@ class PosterController extends Controller
                     'text' => "Lapor! ada yang mendaftar lomba <b>Poster</b>,\n\nNim: "
                     .$request['nim'].
                     "\nNama: "
-                    .$request['nama']."\nLink Karya:\n\n"
-                    .$request['poster']
+                    .$request['nama']."\nLihat karya "
+                    ."<a href='".$request['poster']."'>disini</a>"
                     ."\n\nHinbo Love you"
                 ]);
             }

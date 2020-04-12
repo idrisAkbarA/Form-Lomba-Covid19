@@ -62,13 +62,16 @@
                 <v-card-title>
                   Kriteria penilaian
                 </v-card-title>
-                <v-container >
+                <v-container>
                   <v-row dense>
                     <v-col
                       cols="12"
                       class="d-flex"
                     >
-                      <v-simple-table class="mx-auto" style="width:100%; position:realtive;">
+                      <v-simple-table
+                        class="mx-auto"
+                        style="width:100%; position:realtive;"
+                      >
                         <template v-slot:default>
                           <thead>
                             <tr>
@@ -104,6 +107,13 @@
                                 <li>Poster Mampu menarik perhatian pembaca</li>
                               </td>
                             </tr>
+                            <tr>
+                              <td>5</td>
+                              <td>
+                                Batas waktu penyerahan karya
+                        27 April 2020, pukul 23.59 WIB
+                              </td>
+                            </tr>
                           </tbody>
                         </template>
                       </v-simple-table>
@@ -115,7 +125,7 @@
                   <v-row class="hidden-md-and-up">
                     <v-col>
                       <v-card
-                        @click="signIn"
+                        @click="dialog = true"
                         color="red darken-3"
                         class="mx-auto overflow-y-auto"
                         elevation="21"
@@ -161,7 +171,7 @@
                 color="red darken-3"
                 class="mx-auto overflow-y-auto"
                 elevation="21"
-                @click="signIn"
+                @click="dialog = true"
               >
                 <v-img
                   class="white--text align-end"
@@ -186,6 +196,42 @@
         </v-container>
       </v-sheet>
     </v-bottom-sheet>
+    <v-dialog
+      v-model="dialog"
+      width="300"
+    >
+      <v-card>
+        <v-card-title>
+          Sebelum itu...
+        </v-card-title>
+        <v-card-subtitle>
+          jika menemui error lakukan seperti dibawah...
+        </v-card-subtitle>
+         <v-img
+          class="white--text align-end"
+          height="300px"
+          src="images/petunjuk.gif"
+          contain
+        >
+          <template v-slot:placeholder>
+            <v-skeleton-loader
+            ref="skeleton"
+            :loading="loading"
+            type="image"
+            class="ma-auto "
+          >
+         </v-skeleton-loader>
+          </template>
+        </v-img>
+        <v-card-actions class="mb-2">
+          <v-btn
+            block
+            @click="signIn"
+            color="red darken-5"
+          >Mengerti</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 <script>
@@ -193,6 +239,8 @@ import Axios from "axios";
 export default {
   data() {
     return {
+      loading:true,
+      dialog: false,
       sendButton: true,
       sheet: false,
       nama: "",
@@ -208,11 +256,11 @@ export default {
 
       // redirect_uri of the project
       // YiZFiXWyzCmROXh7ea7__v6T
-      var redirect_uri = "http://127.0.0.1:8000/submitposter";
+      var redirect_uri = "https://lomba.ikarin.site/submitposter";
 
       // scope of the project
 
-      var scope = "https://127.0.0.1:8000/auth/drive";
+      var scope = "https://www.googleapis.com/auth/drive";
 
       // the url to which the user is redirected to
 

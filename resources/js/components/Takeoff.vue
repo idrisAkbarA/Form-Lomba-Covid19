@@ -80,7 +80,7 @@
             </v-card-subtitle>
             <v-card-text>
               <p>
-              Tunggu pengumumannya pada tanggal ---- di akun instagram Himatif USR. 
+              Tunggu pengumumannya pada tanggal 4 Mei di akun instagram Himatif USR. 
               </p>
               <p>
               Stay save, Hinbo Loves you...

@@ -36,8 +36,30 @@ Route::get('/privasi', function () {
     return view('privasi');
 });
 Route::get('/get/peserta', 'videoController@peserta');
+Route::get('/clear-c', 'clear@clear');
+Route::get('/clear-r', function(){ 
+    Artisan::call('cache:clear');
+    Artisan::call('view:clear');
+    Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    return "Cache is cleared";
+});
+Route::get('/migrate-r', function(){ 
+    Artisan::call('migrate:fresh');
+    return "Migrated";
+});
 
 Auth::routes();
+
+Route::get('/uploadexcel',function(){
+    return view('uploadexcel');
+});
+Route::get('/downloadexcel',"mahasiswaController@getExcel");
+Route::get('/uploadexcelX',function(){
+    return view('uploadexcelX');
+});
+Route::post('/upload',"mahasiswaController@store");
+Route::post('/uploadX',"mahasiswaController@storeX");
 
 Route::get('/testbot',function(){
     $response = Telegram::getUpdates();
@@ -56,9 +78,37 @@ Route::get('/testbot',function(){
         ]);
     }
    
+    return $response;
     return $arrId;
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/store/video', 'videoController@store');
 Route::get('/store/poster', 'posterController@store');
+
+// $updates = Telegram::getWebhookUpdates();
+
+
+
+// Example of POST Route:
+Route::get('/viewsetwebhook', function () {
+   return view("setwebhook");
+});
+Route::get('/setwebhook', function () {
+    Telegram::setwebhook([
+        "url" => "https://lomba.ikarin.site/933224605:AAHSQ7mQZfirfXTsDcRpd9PKHaSJgLp-aZ0"
+    ]);
+});
+Route::get('/delwebhook', function () {
+    Telegram::deleteWebhook();
+});
+Route::post('/933224605:AAHSQ7mQZfirfXTsDcRpd9PKHaSJgLp-aZ0', function () {
+    // $updates = Telegram::getWebhookUpdates();
+    Telegram::sendMessage([
+        'chat_id' => "468613362",
+        'parse_mode' => 'HTML',
+        'text' => " Test message from webhook update, Hinbo Love you"
+    ]);
+
+    return 'ok';
+});
